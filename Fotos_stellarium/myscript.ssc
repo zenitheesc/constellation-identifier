@@ -1,0 +1,12 @@
+include("common_objects.inc");
+include("i18n.inc");
+
+for (i=0; i<constellations.length; i++)
+{
+	objName = constellations[i];
+	core.selectConstellationByName(objName);
+	StelMovementMgr.autoZoomIn(0.01);
+	core.wait(0.01);
+	core.screenshot(objName, false, 'D:/Documentos/USP/Zenith/Fotos', false, 'png');
+	core.wait(0.01)
+}
