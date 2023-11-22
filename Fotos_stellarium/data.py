@@ -47,13 +47,13 @@ def printFig(lista):
 
     i = 0
     for point in pointsList:
-        ax.scatter(point[0], point[1], c='black', s= 40 / lista[i]['mag']**2)
+        if i > 20:
+            break
+        ax.scatter(point[1], point[2], c='black', s= 40 / 2**lista[i]['mag'])
         i = i + 1
 
     plt.savefig('database/' + str(lista[0]['con']) + '.png', dpi=500, format='png')
     plt.close()
-
-
 
 
 constelationList = {}
@@ -64,7 +64,7 @@ csvfile = open(path + '/hyg_v37.csv', 'r', newline='')
 # le do csv para a memoria, definindo constelacao como chave
 reader = csv.DictReader(csvfile, delimiter=',')
 for row in reader:
-    if(float(row['mag']) < 5 and float(row['mag']) > 0): # exclui estrelas de baixa luminosidade e o sol
+    if(float(row['mag']) < 6 and float(row['mag']) > 0): # exclui estrelas de baixa luminosidade e o sol
         lista = constelationList.get(row['con'])
         newrow = {'con' : row['con'], 'mag' : float(row['mag']), 'x' : float(row['x']), 'y' : float(row['y']), 'z' : float(row['z'])}
         if(lista == None):
