@@ -1,2 +1,6 @@
 # Constellation-Identifier
-Identificação de Constelações utilizando conceitos de Processamento Digital de Imagem e Visão Computacional
+
+> [!WARNING]
+> This software is under development
+
+Software for Constellation Identification.
